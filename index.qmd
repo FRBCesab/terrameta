@@ -1,0 +1,115 @@
+---
+title: "terrameta: metadata about spatial datasets relevant for ecologists"
+author: 
+- name: "Romain Frelat"
+  orcid: "0000-0002-8631-4398"
+  affiliations: 
+  - name: FRB-CESAB
+    url: "https://www.fondationbiodiversite.fr/en/about-the-foundation/le-cesab/"
+date: today
+execute:
+  echo: false
+  warning: false
+---
+
+This is an online table with metadata on spatial datasets.  
+
+You can select the dataset by `topic`, spatial `scale`, or directly by search entry.  
+
+
+```{r load}
+
+# Load libraries
+library(googlesheets4) # load data
+library(crosstalk) # interactive filter
+library(DT) # interactive tables
+
+# make sure no one is logged in from Google Account
+googlesheets4::gs4_deauth()
+
+url <- "https://docs.google.com/spreadsheets/d/1OW6X94Ha_-_v5fe8XJlQp7ncubgF1CG6LgAIUk1kFcY/"
+meta <- googlesheets4::read_sheet(
+  url,
+  sheet = 2,
+  skip = 0,
+  col_types = "c", #avoid list
+  .name_repair = "universal"
+)
+# to keep track of changes
+# write.csv(meta, file = "data/meta.csv", row.names = FALSE)
+
+# clickable name
+meta$Dataset <- paste0(
+  '<a href="',
+  meta$url,
+  '" target="_blank">',
+  meta$Name,
+  '</a>'
+)
+# clickable doi
+# might need some test beforehand: !grepl("^http", meta$DOI) & !is.na(meta$DOI)
+meta$doi <- ifelse(
+  is.na(meta$DOI),
+  "",
+  paste0(
+    '<a href="',
+    meta$DOI,
+    '" target="_blank">',
+    gsub("^https://doi.org/", "", meta$DOI),
+    '</a>'
+  )
+)
+
+# clickable view
+# might need some test beforehand: !grepl("^http", meta$DOI) & !is.na(meta$DOI)
+meta$view <- ifelse(
+  is.na(meta$View_url),
+  "no",
+  paste0(
+    '<a href="',
+    meta$View_url,
+    '" target="_blank">',
+    "yes",
+    '</a>'
+  )
+)
+
+meta$alt_link <- ifelse(
+  is.na(meta$url_2),
+  "no",
+  paste0(
+    '<a href="',
+    meta$url_2,
+    '" target="_blank">',
+    "yes",
+    '</a>'
+  )
+)
+
+# select relevant column
+col <- c(
+  "Dataset",
+  "Topic",
+  "Variable",
+  "doi",
+  "Spatial.extent",
+  "Spatial.resolution",
+  "Time",
+  "Provider",
+  "Status",
+  "view",
+  "alt_link"
+)
+```
+
+
+
+```{r table}
+shared_meta <- SharedData$new(meta[, col])
+bscols(
+  widths = c(6, 6),
+  filter_select("topic", "Topic", shared_meta, ~Topic),
+  filter_select("extent", "Scale", shared_meta, ~Spatial.extent)
+)
+DT::datatable(shared_meta, rownames = FALSE, escape = FALSE)
+```
