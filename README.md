@@ -1,6 +1,4 @@
----
-title: "About"
----
+# terrameta: metadata about spatial datasets relevant for ecologists 
 
 <p align="center">
   <a href="https://quarto.org/">
@@ -25,11 +23,11 @@ title: "About"
 
 ## Content
 
-This is a list of metadata of GIS data that are relevant for ecologists.
+This folder contains a list of metadata of GIS data that are relevant for ecologists. It can be accessed online at: <https://frbcesab.github.io/terrameta/>  
 
 This list does NOT aim to be complete with all existing GIS data but it is a collection of what have been used recently by some groups in [FRB-CESAB](https://www.fondationbiodiversite.fr/en/about-the-foundation/le-cesab/).  
 
-This list does NOT contain biodiversity field observations or traits data. It only register spatial GIS data, mostly as polygons (vector) or grid (raster).
+This list does NOT contain biodiversity field observations or traits data. It only register spatial GIS data, mostly as polygons (vector) or grid (raster).  
 
 For each dataset, we register information on 13 fields (optional fields are indicated with *) for each dataset.   
 
@@ -54,7 +52,7 @@ For each dataset, we register information on 13 fields (optional fields are indi
 
 ## Contribute
 
-We warmly welcome every contributions to this collaborative effort. Before adding a new dataset, make sure that it is not in the list. 
+We warmly welcome all contributions to this collaborative effort. Before adding a new dataset, make sure that it is not in the list. 
 
 If you see mistakes, want to suggest changes, or add a new dataset, please [create an issue](https://github.com/FRBCesab/terrameta/issues/new) on the source repository.
 
