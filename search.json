@@ -18,14 +18,14 @@
     "href": "about.html#content",
     "title": "About",
     "section": "Content",
-    "text": "Content\nThis is a list of metadata of GIS data that are relevant for ecologists.\nThis list does NOT aim to be a complete list of all existing GIS data (impossible task) but it IS a collection of what have been used recently by some groups in FRB-CESAB.\nThis list does NOT contain biodiversity field observations or traits data but it only list GIS data (either polygons, grid or raster).\nFor each dataset, we register information on 13 fields (optional fields are indicated with *) for each dataset.\n\n\n\n\n\n\n\nField\nDefinition\n\n\n\n\nName\nName of the database (+ abbreviation in brackets if any)\n\n\nVariable\nVariable represented. If many, provide a summary\n\n\nTopic\nAmong available topics (defined in Topics sheet), find the most appropriate one\n\n\nSpatial extent\nSpatial extent of the dataset. So far three classes (with our FRB-CESAB focus): World, Europe and France\n\n\nSpatial resolution\nBest available resolution. For vector, when available fill in the precision of coordinates\n\n\nTime\nFor time series, provide the extent and the frequency.\n\n\n\nWhen averaging value over a time period, indicate only the middle of the time period.\n\n\nProvider *\nOrganization responsible for the data storage or author names of the publication\n\n\nStatus\nInformation related to the license of the dataset.\n\n\n\nIn 5 categories: Open to all / Open to academics / Open to registered users / Restricted / Private\n\n\nurl\nmain url where the data can be downloaded\n\n\nurl_2 *\nalternative url where the data can be found (e.g. zenodo repository, r package, …)\n\n\nCitations *\nHow to cite the dataset\n\n\nDOI *\ndoi of the scientific publication (when available).\n\n\nView_url *\nurl to the online viewer of the data (when available)"
+    "text": "Content\nThis is a list of metadata of GIS data that are relevant for ecologists.\nThis list does NOT aim to be complete with all existing GIS data but it is a collection of what have been used recently by some groups in FRB-CESAB.\nThis list does NOT contain biodiversity field observations or traits data. It only register spatial GIS data, mostly as polygons (vector) or grid (raster).\nFor each dataset, we register information on 13 fields (optional fields are indicated with *) for each dataset.\n\n\n\n\n\n\n\nField\nDefinition\n\n\n\n\nName\nName of the database (+ abbreviation in brackets if any)\n\n\nVariable\nVariable represented. If many, provide a summary\n\n\nTopic\nAmong available topics (defined in Topics sheet), find the most appropriate one\n\n\nSpatial extent\nSpatial extent of the dataset. So far three classes (with our FRB-CESAB focus): World, Europe and France\n\n\nSpatial resolution\nBest available resolution. For vector, when available fill in the precision of coordinates\n\n\nTime\nFor time series, provide the extent and the frequency.  When averaging value over a time period, indicate only the middle of the time period.\n\n\nProvider *\nOrganization responsible for the data storage or author names of the publication\n\n\nStatus\nInformation related to the license of the dataset.  In 5 categories: Open to all / Open to academics / Open to registered users / Restricted / Private\n\n\nurl\nmain url where the data can be downloaded\n\n\nurl_2 *\nalternative url where the data can be found (e.g. zenodo repository, r package, …)\n\n\nCitations *\nHow to cite the dataset\n\n\nDOI *\ndoi of the scientific publication (when available).\n\n\nView_url *\nurl to the online viewer of the data (when available)"
   },
   {
     "objectID": "about.html#contribute",
     "href": "about.html#contribute",
     "title": "About",
     "section": "Contribute",
-    "text": "Contribute\nWe warmly welcome every contributions to this collaborative effort. Before adding a new dataset, make sure that it is not in the list.\nIf you see mistakes, want to suggest changes, or add new dataset, please create an issue on the source repository."
+    "text": "Contribute\nWe warmly welcome every contributions to this collaborative effort. Before adding a new dataset, make sure that it is not in the list.\nIf you see mistakes, want to suggest changes, or add a new dataset, please create an issue on the source repository."
   },
   {
     "objectID": "about.html#reuse",
@@ -39,7 +39,7 @@
     "href": "about.html#citation",
     "title": "About",
     "section": "Citation",
-    "text": "Citation\nPlease cite these presentations as:\n\nFrelat R (2025) terrameta: metadata about spatial datasets relevant for ecologists. URL: https://frbcesab.github.io/terrameta/"
+    "text": "Citation\n\nFrelat R (2025) terrameta: metadata about spatial datasets relevant for ecologists. URL: https://frbcesab.github.io/terrameta/"
   },
   {
     "objectID": "about.html#see-also",
