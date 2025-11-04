@@ -25,7 +25,7 @@
 
 This folder contains a list of metadata of GIS data that are relevant for ecologists. It can be accessed online at: <https://frbcesab.github.io/terrameta/>  
 
-This list does NOT aim to be complete with all existing GIS data but it is a collection of what have been used recently by some groups in [FRB-CESAB](https://www.fondationbiodiversite.fr/en/about-the-foundation/le-cesab/).  
+This list does NOT aim to be complete with all existing GIS data but it is a collection of what have been used recently by groups in [FRB-CESAB](https://www.fondationbiodiversite.fr/en/about-the-foundation/le-cesab/).  
 
 This list does NOT contain biodiversity field observations or traits data. It only register spatial GIS data, mostly as polygons (vector) or grid (raster).  
 
