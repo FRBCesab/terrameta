@@ -64,7 +64,7 @@ The metadata and the website are licensed under [GPL 3.0](https://choosealicense
 
 ## Citation
 
-> Frelat R (2025) terrameta: metadata about spatial datasets relevant for ecologists. URL: <https://frbcesab.github.io/terrameta/>
+> Frelat R (2026) terrameta: metadata about spatial datasets relevant for terrestrial ecologists. URL: <https://frbcesab.github.io/terrameta/>
 
 
 ## See also
