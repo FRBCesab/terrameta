@@ -36,7 +36,7 @@ meta <- googlesheets4::read_sheet(
   .name_repair = "universal"
 )
 # to keep track of changes
-# write.csv(meta, file = "data/meta.csv", row.names = FALSE)
+write.csv(meta, file = "data/meta.csv", row.names = FALSE)
 
 # clickable name
 meta$Dataset <- paste0(
