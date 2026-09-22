@@ -1,0 +1,291 @@
+---
+title: "terrameta: inventaire des données spatiales documentant les pressions sur les écosystèmes terrestres"
+author: 
+- name: "Romain Frelat"
+  orcid: "0000-0002-8631-4398"
+  affiliations: 
+  - name: FRB-CESAB
+    url: "https://www.fondationbiodiversite.fr/en/about-the-foundation/le-cesab/"
+date: today
+execute:
+  echo: false
+  warning: false
+format:
+  docx:
+    toc: false
+    number-sections: false
+    colorlinks: false
+    reference-doc: FRB-Template.docx
+    dpi: 300
+figure:
+  fig-width: 8
+  fig-height: 8
+  fig-dpi: 300
+bibliography: documentation.bib
+---
+
+
+```{r}
+library(ggplot2)
+# pak::pak("davidsjoberg/ggsankey")
+library(ggsankey)
+meta <- read.csv(here::here("data", "meta.csv"))
+meta <- meta[meta$Topic != "Marine", ]
+# simplify Status
+meta$Status[meta$Status == "Open for academia"] <- "Open to all"
+```
+
+# Résumé
+
+L'inventaire des données spatiales documentant les pressions sur les écosystèmes terrestres a été réalisé dans le cadre du [programme FRB-MTE-OFB Pressions anthropiques et impacts sur la biodiversité terrestre](https://www.fondationbiodiversite.fr/la-frb-en-action/programmes-et-projets/impacts-sur-la-biodiversite-terrestre-dans-lanthropocene/). 
+Cette ressource propose une liste, non-exhaustive, des jeux de données les plus couramment utilisés pour caractériser les pressions induites par les activités humaines sur la biodiversité terrestre. Cette liste regroupe ```r nrow(meta)``` jeux de données nationaux, européens, ou mondiaux. La grande majorité des base de données listées sont accessibles librement et peuvent facilement venir enrichir les efforts de modélisations de la biodiversité terrestre. Chaque jeu de données est accompagné d'une description contenant sa résolution spatiale et temporelle, ses modalités d'accès, ainsi que les références bibliographiques. Accompagné d'un ensemble de tutoriels sur l'extraction et analyse de données spatiale (*+ref*).
+
+# Context 
+
+Dans le cadre du [programme FRB-MTE-OFB Pressions anthropiques et impacts sur la biodiversité terrestre](https://www.fondationbiodiversite.fr/la-frb-en-action/programmes-et-projets/impacts-sur-la-biodiversite-terrestre-dans-lanthropocene/), de multiple projets ont étudié l'impact des pressions anthropiques sur la biodiversité terrestre. Cependant, il n'est pas toujours facile de quantifier ces pressions localement même si de nombreux efforts dans ce sens existent [@Patrinat_2021; @NaturaConnect_2024]. Ce verrou a été identifié comme un obstacle majeur par les participants de l'[Atelier n°1 – Surveillance et suivi de la biodiversité terrestre](https://www.fondationbiodiversite.fr/evenement/rencontre-atelier-n1-surveillance-et-suivi-de-la-biodiversite-terrestre-les-resultats-du-programme-pressions-anthropiques-et-impacts-sur-la-biodiversite-terrestre/). 
+Cet inventaire est une réponse partielle et incomplète à ce besoin. Il regroupe les données spatiales fréquemment utilisés par les écologues, et plus spécifiquement par les chercheurs affiliés au programme de recherche FRB-MTE-OFB.  
+
+
+# Caractéristiques
+
+Cet inventaire est **non-exhaustif** et n'a pas pour vocation à le devenir. Le nombre de jeux de données spatiales est trop important et évolue trop rapidement. Ceci est une sélection de jeux de données, couramment utilisés ou à fort potentiel pour l'écologie et l'étude de la biodiversité terrestre.  
+Cet inventaire liste les **données spatiales de facteurs environnementaux et anthropiques** pouvant avoir un impact (positif ou négatif) sur les écosystèmes. Il ne contient pas de données d'observation biologiques, ni de données sur les traits des espèces. Seuls les données spatiales (rasters, polygons) ou pouvant être facilement spatialisée sont considérées. L'étendue spatiale minimum considérée est la France métropolitaine dans son intégralité. Ainsi, les données locales ou régionales sont exclus de cette liste.   
+Cet inventaire se focalise sur les **données ouvertes** ou facilement accessibles. Les données privées ou d'instituts de recherche non partagées librement ne sont pas mentionnées dans cette liste.   
+Cet inventaire se veut **évolutif et intéractif**. Il est accessible [en ligne](https://frbcesab.github.io/terrameta/) et les utilisateurs peuvent suggérer des améliorations et des mises à jours sur la plateforme [GitHub du projet](https://github.com/FRBCesab/terrameta/issues).  
+
+
+## Contenu
+
+Le jeu de données contient un fichier excel en anglais contenant  trois onglets:    
+
+- ReadMe : information générale et métadonnées
+- Metadata : l'inventaire des données spatiales
+- Topics : définition des thématiques
+
+{{< pagebreak >}}
+
+## Contenu
+
+Pour chaque jeu de données, treize champs (dont cinq optionnels*) sont renseignés.   
+
+> Table 1: Description du contenu de l'inventaire des données spatiale de pression {#tbl-contenu}
+
+| Champ              | Définition                                                                                                   |
+|:------------------ |:------------------------------------------------------------------------------------------------------------ |
+| Name               | Nom de la base de données (+ abréviation entre parenthèse si disponible).                                    |
+| Variable           | Variables disponibles. Si le nombre de variables est grand, un résumé est fourni.                            |
+| Topic              | Le thème du jeu de données parmi les [thèmes disponibles](#thèmes).                                          |
+| Spatial extent     | Étendue géographique couverte parmi les trois classes: France, Europe, Monde                                 |
+| Spatial resolution | Résolution spatiale du jeu de données pour les rasters.                                                      |
+| Time               | For time series, provide the extent and the frequency. <br> When averaging value over a time period, indicate only the middle of the time period. |
+| Provider *         | Organization responsible for the data storage or author names of the publication                             |
+| Status             | Information sur la license des données. <br> En 5 categories: Ouvert / Ouvert pour la recherche / Ouvert après enregistrement / Disponible sur demande /  Private |
+| url                | Adresse principale pour télécharger le jeu de données                                                        |
+| url_2 *            | Adresse alternative avec le jeu de données (e.g. zenodo repository, r package, ...)                          |
+| Citations *        | La citation complète du jeu de données ou de la publication scientifique liée                                |
+| DOI *              | DOI de la publication scientifique ou de la citation (si disponible)                                         |
+| View_url *         | visualisation en ligne des données (si disponible)                                                           |
+
+
+{{< pagebreak >}}
+
+
+## Thèmes
+
+| Topics               | Include                                                                                                 | Examples                     |
+|:----------------------|:--------------------------------------------------------------------------------------------------------|:------------------------------|
+| Administrative areas | frontière administrative, découpage du territoire par l'administration                                  | GADM, Natural Earth          |
+| Agriculture          | information sur les pratiques agricoles                                                                 | RPG, AgenceBio               |
+| Climate              | variables climatiques (température, précipitation, ...)                                                 | Chelsea, WorldClim           |
+| Conservation areas   | conservation units (protected areas) and/or practices                                                   | Protected areas, Natura 2000 |
+| Pollution            | measure of anthropogenic contamination (soil, air, noise, light, ...)                                   |                              |
+| Elevation            | elevation or bathymetry                                                                                 | SRTM                         |
+| Footprint            | human footprint on ecosystem or degree of naturalness                                                   |                              |
+| Ecoregion            | bio-geographical areas characterizing habitat, biotopes, ecosystem and/or climate                       | ecological zones             |
+| Human activities     | population density and demography, roads, distance to roads/cities, and other socio-economic indicators |                              |
+| Hydrography          | characteristics and definition of rivers and watersheds                                                 |                              |
+| Land use land cover  | land use and land cover information from satellite and/or sensus                                        | Corine                       |
+| Vegetation indices   | remotely sensed vegetation index and phenology (e.g. NDVI)                                              | MODIS                        |
+| Soil                 | soil caracteristics (chimical or botanical)                                                             | ISRIC Soil Grids             |
+| Other                | for all the rest                                                                                        |                              |
+
+: Description des thèmes considérés dans l'inventaire des données spatiale de pression {#tbl-topic}
+
+{{< pagebreak >}}
+
+
+## Résumé
+
+```{r}
+#| label: fig-sankey
+#| fig-cap: "Résumé des jeu de données répertoriés en fonction de leur étendue géographique, du thème et de leur license."
+#| 
+meta$Etendue <- factor(
+  meta$Spatial.extent,
+  labels = c(
+    "F_Europe",
+    "A_France",
+    "V_World"
+  )
+) |>
+  as.character()
+
+meta$Theme <- meta$Topic
+meta$Disponibilite <- factor(
+  meta$Status,
+  labels = c(
+    "Z_Not available",
+    "E_Open after registration",
+    "A_Open to all",
+    "M_Upon request"
+  )
+) |>
+  as.character()
+
+df <- meta %>%
+  make_long(Etendue, Theme, Disponibilite)
+df$label <- ifelse(
+  grepl("_", df$node),
+  substr(df$node, 3, nchar(df$node)),
+  df$node
+)
+
+ggplot(
+  df,
+  aes(
+    x = x,
+    next_x = next_x,
+    node = node,
+    next_node = next_node,
+    fill = factor(node),
+    label = label
+  )
+) +
+  geom_sankey(flow.alpha = .6, node.color = "gray30") +
+  geom_sankey_label(size = 3, color = "white", fill = "gray40") +
+  scale_fill_viridis_d(drop = FALSE) +
+  theme_sankey(base_size = 18) +
+  labs(x = NULL) +
+  theme(legend.position = "none", plot.title = element_text(hjust = .5)) +
+  ggtitle("Summary")
+```
+
+
+```{r}
+#| label: fig-barplot
+#| fig-cap: "Nombre de jeux de données par étendue spatiale"
+
+# extent
+meta$Extent <- factor(
+  meta$Spatial.extent,
+  levels = c(
+    "France",
+    "Europe",
+    "World"
+  ),
+  ordered = TRUE
+)
+
+# topic
+ntopic <- rev(table(meta$Topic))
+ntopic <- ntopic[order(ntopic)]
+
+# status
+meta$Status <- factor(
+  meta$Status,
+  levels = c(
+    "Open to all",
+    "Open for academia",
+    "Open after registration",
+    "Upon request",
+    "Not available"
+  ),
+  ordered = TRUE
+)
+colcat <- c("#11734b", "#25b62d", "#d4edbc", "#ffc8aa", "#3d3d3d")
+nstatus <- table(meta$Status)
+
+# plots
+par(mfrow = c(1, 3), mar = c(4, 1, 1, 1))
+nextent <- rev(table(meta$Extent))
+barp <- barplot(
+  nextent,
+  horiz = TRUE,
+  xlab = "Number of datasets",
+  names.arg = ""
+)
+text(
+  nextent - 5,
+  barp,
+  names(nextent),
+  cex = 1,
+  adj = 1
+)
+barp <- barplot(
+  ntopic,
+  horiz = TRUE,
+  xlab = "Number of datasets",
+  names.arg = ""
+)
+text(
+  ntopic[ntopic < 7] + 1,
+  barp[ntopic < 7],
+  names(ntopic)[ntopic < 7],
+  cex = 1,
+  adj = 0
+)
+text(
+  ntopic[ntopic >= 7] - 1,
+  barp[ntopic >= 7],
+  names(ntopic)[ntopic >= 7],
+  cex = 1,
+  adj = 1
+)
+
+barp <- barplot(
+  nstatus,
+  horiz = TRUE,
+  xlab = "Number of datasets",
+  names.arg = "",
+  col = colcat
+)
+text(
+  c(100, nstatus[-1] + 10),
+  barp,
+  levels(meta$Status),
+  col = c("white", rep("black", 4)),
+  cex = 1,
+  adj = 0
+)
+```
+
+
+
+{{< pagebreak >}}
+
+## Contribute
+
+If you see mistakes, want to suggest changes, or add a new dataset, please [create an issue](https://github.com/FRBCesab/terrameta/issues/new) on the source repository.
+
+
+## Reuse
+
+The metadata and the website are licensed under [GPL 3.0](https://choosealicense.com/licenses/gpl-3.0/), unless otherwise noted.
+
+
+## Citation
+
+> Frelat R (2026) terrameta: metadata about spatial datasets relevant for terrestrial ecologists. URL: <https://frbcesab.github.io/terrameta/> DOI *to-be-added*
+
+
+## See also
+
+Discover the other materials and R-packages developed by the FRB-CESAB and its partners: <https://frbcesab.github.io/>
+<br>
+
+{{< pagebreak >}}
+
+## References
+
+::: {#refs}
+:::
