@@ -1,12 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "terrameta: metadata about spatial datasets relevant for ecologists",
-    "section": "",
-    "text": "This is an online table with metadata on spatial datasets.\nYou can select the dataset by topic, spatial scale, or directly by search entry.\n\n\n\n\n\n\nTopic\n\n\n\n\n\n\n\n\nScale"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -47,5 +40,12 @@
     "title": "About",
     "section": "See also",
     "text": "See also\nDiscover the other materials and R-packages developed by the FRB-CESAB and its partners: https://frbcesab.github.io/"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "terrameta: metadata about spatial datasets relevant for ecologists",
+    "section": "",
+    "text": "This is an online table with metadata on spatial datasets.\nYou can select the dataset by topic, spatial scale, or directly by search entry.\n\n\n\n\n\n\nTopic\n\n\n\n\n\n\n\n\nScale"
   }
 ]
